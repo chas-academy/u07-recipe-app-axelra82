@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
             // Dispatch (send/post) mealDB service result to our global store 
             this.store.dispatch(new RecipeActions.GetRecipes(data.meals));
             // Set the result count from the result length
-            this.resultCount = data.meals.length;
+            this.resultCount = data.meals ? data.meals.length : 0;
           }
         );
       }
