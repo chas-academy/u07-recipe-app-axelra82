@@ -1,7 +1,7 @@
-import * as PostActions from '../actions/recipe.actions';
+import * as RecipeActions from '../actions/recipe.actions';
 import { Recipes } from '../models/recipes.model';
 
-export type Action = PostActions.All;
+export type Action = RecipeActions.All;
 
 const defaultState: Recipes = {
     saved: [],
@@ -70,13 +70,13 @@ const newState = (state, newData) => {
 export function postReducer(state: Recipes = defaultState, action: Action){
     
     switch (action.type) {
-        case PostActions.GET_RECIPES:
+        case RecipeActions.GET_RECIPES:
             return newState(state, {list: action.payload });
 
-        case PostActions.SET_RECIPE:
+        case RecipeActions.SET_RECIPE:
             return newState(state, {single: action.payload });
         
-        case PostActions.SAVE_RECIPE:
+        case RecipeActions.SAVE_RECIPE:
             return newState(state, {saved: action.payload });
             
         default:
