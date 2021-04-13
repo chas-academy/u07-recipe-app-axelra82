@@ -9,7 +9,8 @@ import { ListComponent, SingleComponent } from './components/recipe/recipe.compo
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { SavedComponent } from './pages/saved/saved.component';
-
+// Store (a.k.a state)
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { SavedComponent } from './pages/saved/saved.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
