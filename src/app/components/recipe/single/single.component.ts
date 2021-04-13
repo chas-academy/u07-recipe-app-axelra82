@@ -35,8 +35,11 @@ export class SingleComponent implements OnInit {
       const ingredient = recipe[`strIngredient${i}`];
       const measure = recipe[`strMeasure${i}`];
       
+      const hasIngredient = ingredient !== null && ingredient !== '';
+      const hasMeasure = measure !== null && measure != "";
+
       // Skip items that have neither value
-      if(ingredient || measure){
+      if(hasIngredient || hasMeasure){
         
         // Create inner array for ingredient and measurement
         const lineArray = [
