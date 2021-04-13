@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { ListComponent, SingleComponent } from './components/recipe/recipe.component';
+import { NavComponent } from './components/nav/nav.component';
+import { SearchComponent } from './components/search/search.component';
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { SavedComponent } from './pages/saved/saved.component';
@@ -16,6 +18,8 @@ import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
+    SearchComponent,
     ListComponent,
     SingleComponent,
     HomeComponent,
