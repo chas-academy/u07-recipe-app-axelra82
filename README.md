@@ -70,9 +70,10 @@ Then save and exit. Your environment setup is now done!
 [Github repo](https://github.com/chas-academy/u07-recipe-app-axelra82)
 and link to repo in LMS
 
-# Article references
+# Article/Video references
 
-During the development of this application some helpful articles where found:
+During the development of this application some helpful articles/video where found:
 
 - [Integrate dotenv](https://dev.to/artemv01/integrating-dotenv-and-google-maps-api-into-your-angular-project-40gh)
-- [Angular/Netlify routing](https://stackoverflow.com/questions/51887581/angular-routing-not-working-on-netlify-on-page-refresh)
+- [Netlify routing](https://stackoverflow.com/questions/51887581/angular-routing-not-working-on-netlify-on-page-refresh)
+- [NgRx (store/state)](https://www.youtube.com/watch?v=f97ICOaekNU)
