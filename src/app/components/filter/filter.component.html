@@ -1,0 +1,33 @@
+<!-- <button (click)="filter()">Clear</button> -->
+
+<section class="form-group filter">
+    <strong>FILTER: </strong>
+    <span class="text-muted">(Type)</span>
+    <label>
+        Main
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+    <label>
+        Side
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+    <label>
+        Dessert
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+
+    <span class="text-muted">(Allergen/Dietary)</span>
+    <label>
+        Gluten
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+    <label>
+        Nuts
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+    <label>
+        Vegan
+    <input type="checkbox" (change)="onCheckboxChange($event)" />
+    </label>
+
+</section>
