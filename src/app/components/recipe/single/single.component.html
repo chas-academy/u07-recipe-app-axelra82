@@ -6,7 +6,7 @@
                 <span id="area" class="text-muted  fw-bold">{{ recipe.strArea }}</span> / 
                 <span id="category" class="text-muted fw-bold">{{ recipe.strCategory }}</span>
             </p>
-            <app-save-btn [saveBtnData]="saveBtnService.saveBtnData(recipe)"></app-save-btn>
+            <app-save-btn [saveBtnInput]="saveBtnInput(recipe)"></app-save-btn>
             <app-tags [tags]="recipe.strTags"></app-tags>
             <p><a href="{{ recipe.strSource }}">Original source</a></p>
             <p><a href="{{ recipe.strYoutube }}">YouTube video</a></p>

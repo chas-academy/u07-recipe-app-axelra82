@@ -52,6 +52,10 @@ export class SingleComponent implements OnInit {
     this.details = detailsArray;
   }
 
+  saveBtnInput(recipe: object){
+    return this.saveBtnService.saveBtnData(recipe);
+  }
+  
   ngOnInit() {
     // Rather than storing existing recipe data from search in state we
     // use the recipe ID using the route parameter id.
