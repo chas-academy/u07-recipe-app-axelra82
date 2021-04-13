@@ -48,4 +48,4 @@ Thumbs.db
 # ENV files
 .env
 *.env
-/app/environments/*
+/src/app/environments/*
