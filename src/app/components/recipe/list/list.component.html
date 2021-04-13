@@ -1,8 +1,7 @@
-<section *ngIf="recipesData.length" class="container mt-5 mb-5">
+<section *ngIf="haveResults" class="container mt-5 mb-5">
     <div class="row mt-3">
         
         <app-filter
-            *ngIf="recipesData.length"
             [recipesData]="recipesData"
             (newItemEvent)="filterList($event)"
         ></app-filter>

@@ -20,7 +20,8 @@ export class ListComponent implements OnInit {
 
   recipesSubscriber: Observable<Recipes>;
   recipesData: Recipes['list'];
-  
+  haveResults: boolean = false;
+
   constructor(
     private store: Store<AppState>,
     private saveBtnService: SaveBtnService
@@ -30,7 +31,12 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipesSubscriber.subscribe(
-      data => this.recipesData = data.list
+      data => {
+        this.recipesData = data.list;
+        if(this.recipesData && this.recipesData.length !== 0){
+          this.haveResults = true;
+        }
+      }
     )
   }
 
