@@ -39,29 +39,34 @@ Then save and exit. Your environment setup is now done!
 
 ### Goal
 
-- [ ] get a list of recipe suggestions
+- [x] get a list of recipe suggestions
 - [ ] be able to filter suggestions
   - [ ] by type/category (e.g. main, side, dessert etc)
   - [ ] by allergen/dietary (e.g. gluten, nuts, vegan etc)
-- [ ] individual recipe page (route) from list
-- [ ] be able to save recipe in list
-- [ ] be able to view saved recipe (route) from list
-- [ ] be able to remove saved recipe from list
+- [x] individual recipe page (route) from list
+- [x] be able to save recipe in list
+- [x] be able to view saved recipe (route) from list
+- [x] be able to remove saved recipe from list
 
 ### Requirements
 
 - [x] must use Angular (v 11)
-- [ ] Use external API for recipe data e.g.
+- [x] Use external API for recipe data e.g.
   - [MealDB](https://www.themealdb.com/api.php)
-  - [Edamam](https://developer.edamam.com/edamam-recipe-api)
-- [ ] must be responsive (i.e. work on mobile/tablet/laptop/desktop)
+  - ~~[Edamam](https://developer.edamam.com/edamam-recipe-api)~~
+- [x] must be responsive (i.e. work on mobile/tablet/laptop/desktop)
 - [ ] saved list and filtering must work while browser remains open
 
 # Hand in
 
+**Due date:** April 8th 2021
+
 [Github repo](https://github.com/chas-academy/u07-recipe-app-axelra82)
 and link to repo in LMS
 
-## Due date
+# Article references
 
-April 8th 2021
+During the development of this application some helpful articles where found:
+
+- [Integrate dotenv](https://dev.to/artemv01/integrating-dotenv-and-google-maps-api-into-your-angular-project-40gh)
+- [Angular/Netlify routing](https://stackoverflow.com/questions/51887581/angular-routing-not-working-on-netlify-on-page-refresh)
