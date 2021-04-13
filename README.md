@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This assignment requires the developer to create a rudimentary recipe app.
+This assignment requires the developer to create a rudimentary recipe app using [Angluar](https://angular.io/) v11+.
 
 ### Prerequisites
 
@@ -13,6 +13,20 @@ This assignment requires the developer to create a rudimentary recipe app.
 To test if you have it, run `ng v`. If this outputs "Angular CLI" with version information you are good to go (just make sure it's **=< v11.x**, if not, run `ng update`).
 
 If you don't have it installed simply run `npm i -g @angular/cli`.
+
+**Local environment**
+
+On build this project looks for an environment. Since environment variables are secret and should never be shared in public repos you will need to set it up yourself. Create a new file called `.env` in the project root. You can do this several ways, e.g.:
+
+- vsc file browser: right-click -> new file and name it `.env`
+- macOS/Linux: `touch .env`
+- windows (cmd): `type nul > .env`
+
+Edit `.env` file and insert:
+
+- `REAPP_MEALDB_API_KEY=1`
+
+Then save and exit. Your environment setup is now done!
 
 ### Local setup
 
