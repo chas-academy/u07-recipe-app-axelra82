@@ -19,7 +19,7 @@ If you don't have it installed simply run `npm i -g @angular/cli`.
 1. download repo
 2. navigate to folder
 3. run `npm i` to install dependencies
-4. run `npm start` to serve website on (localhost:4200)[http://localhost:4200]
+4. run `npm start` to serve website on [localhost:4200](http://localhost:4200)
 
 ## App Functionallity
 
