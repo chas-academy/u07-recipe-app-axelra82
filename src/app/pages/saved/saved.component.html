@@ -1,1 +1,14 @@
-<p>saved works!</p>
+<article *ngIf="haveResults; else suchEmpty">
+    <h1>All the noms!</h1>
+    <p>Here is your currated list.</p>
+    <p><strong>PRO TIP! </strong><span class="text-muted">if you accidentally remove an item you can save it again before refreshing/leaving the page</span> 😉</p>
+    <app-list></app-list>
+</article>
+
+<ng-template #suchEmpty>
+    <article id="such-empty">
+        <h1>Well that's a bummer...</h1>
+        <p>There's nothing here yet. You can add recipes by clicking the green "Save" button either in the list view on a search or on the individual recipe pages.</p>
+        <p><strong>NOTE!</strong> <span class="text-muted">Since there is no account here you'll only be able to view your saved recipes list on this browser.</span></p>
+    </article>
+</ng-template>
