@@ -1,1 +1,35 @@
-<p>single works!</p>
+<article *ngIf="recipeData as recipe; else working">
+    <div class="row mb-3" id="intro">
+        <div class="col-lg-4 col-12">
+            <h1>{{ recipe.strMeal }}</h1>
+            <p>
+                <span id="area" class="text-muted  fw-bold">{{ recipe.strArea }}</span> / 
+                <span id="category" class="text-muted fw-bold">{{ recipe.strCategory }}</span>
+            </p>
+            <app-save-btn [saveBtnData]="saveBtnService.saveBtnData(recipe)"></app-save-btn>
+            <app-tags [tags]="recipe.strTags"></app-tags>
+            <p><a href="{{ recipe.strSource }}">Original source</a></p>
+            <p><a href="{{ recipe.strYoutube }}">YouTube video</a></p>
+            <p><a href="/recipe/{{ permalink }}">Permalink to recipe</a></p>
+        </div>
+            <img id="thumb" class="col-lg-8 col-12" src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}" />
+    </div>
+
+    <h2>Instructions</h2>
+    <p id="instructions">{{ recipe.strInstructions }}</p>
+
+    <h3>Ingredients/Measurements</h3>
+    <ul *ngIf="details">
+        <li class="" *ngFor="let detail of details">
+            <strong>{{ detail[0] }}</strong><span *ngIf="detail[0] && detail[1]">,</span> {{ detail[1] }}
+        </li>
+    </ul>
+</article>
+
+<!-- Show a working/loading section if for whatever reason the API is taking time -->
+<ng-template #working>
+    <article id="working">
+        <div class="spinner-grow text-primary mb-5 mt-5" role="status"></div>
+        <p><strong>hold on - getting recipe - nom nom nom 🤤</strong></p>    
+    </article>
+</ng-template>

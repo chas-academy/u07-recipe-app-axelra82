@@ -1,0 +1,25 @@
+#intro{
+
+    #thumb{
+        max-height: 420px;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+#instructions{
+    white-space:pre-wrap;
+}
+
+#working {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .spinner-grow{
+        width: 2rem;
+        height: 2rem;   
+    }
+}
