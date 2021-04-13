@@ -14,9 +14,7 @@ export class SaveBtnComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.saveBtnInput);
-    
+  ngOnInit(): void {    
     this.isSaved = this.saveBtnInput.isSaved;
     this.recipe = this.saveBtnInput.recipe;
   }
