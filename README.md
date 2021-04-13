@@ -1,27 +1,53 @@
-# U07
+# CHAS ACADEMY | ASSIGNMENT U07
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+[Live app preview](https://optimistic-wiles-9bb767.netlify.app/)
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This assignment requires the developer to create a rudimentary recipe app.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Angluar CLI =< v11.x**
 
-## Build
+To test if you have it, run `ng v`. If this outputs "Angular CLI" with version information you are good to go (just make sure it's **=< v11.x**, if not, run `ng update`).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If you don't have it installed simply run `npm i -g @angular/cli`.
 
-## Running unit tests
+### Local setup
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. download repo
+2. navigate to folder
+3. run `npm i` to install dependencies
+4. run `npm start` to serve website on (localhost:4200)[http://localhost:4200]
 
-## Running end-to-end tests
+## App Functionallity
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Goal
 
-## Further help
+- [ ] get a list of recipe suggestions
+- [ ] be able to filter suggestions
+  - [ ] by type/category (e.g. main, side, dessert etc)
+  - [ ] by allergen/dietary (e.g. gluten, nuts, vegan etc)
+- [ ] individual recipe page (route) from list
+- [ ] be able to save recipe in list
+- [ ] be able to view saved recipe (route) from list
+- [ ] be able to remove saved recipe from list
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Requirements
+
+- [x] must use Angular (v 11)
+- [ ] Use external API for recipe data e.g.
+  - [MealDB](https://www.themealdb.com/api.php)
+  - [Edamam](https://developer.edamam.com/edamam-recipe-api)
+- [ ] must be responsive (i.e. work on mobile/tablet/laptop/desktop)
+- [ ] saved list and filtering must work while browser remains open
+
+# Hand in
+
+[Github repo](https://github.com/chas-academy/u07-recipe-app-axelra82)
+and link to repo in LMS
+
+## Due date
+
+April 8th 2021
