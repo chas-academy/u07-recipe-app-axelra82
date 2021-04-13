@@ -67,14 +67,43 @@ const newState = (state, newData) => {
     return Object.assign({}, state, newData)
 }
 
+const cleanFilter = (arr) => {
+    return arr.filter((f: any) => f !== undefined);
+}
+
 export function postReducer(state: Recipes = defaultState, action: Action){
     
     switch (action.type) {
         case RecipeActions.RECIPE_LIST:
-            return newState(state, {list: action.payload });
-
-        case RecipeActions.RECIPE_FILTER:
-            return newState(state, {filter: action.payload });
+            return newState(
+                state,
+                {
+                    list: cleanFilter(action.payload)
+                }
+            );
+        
+        // TBD | Probably remove
+        case RecipeActions.RECIPE_LIST_FILTER:
+            return;
+        
+        case RecipeActions.RECIPE_FILTER_ADD:
+            return newState(
+                state,
+                {
+                    filter: [
+                        ...state.filter,
+                        action.payload
+                    ]
+                }
+            );
+        
+        case RecipeActions.RECIPE_FILTER_REMOVE:
+            return newState(
+                state,
+                {
+                    filter: state.filter.filter(str => str !== action.payload)
+                }
+            );
             
         default:
             return defaultState;
