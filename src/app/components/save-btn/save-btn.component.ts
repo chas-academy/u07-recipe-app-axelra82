@@ -15,6 +15,8 @@ export class SaveBtnComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.saveBtnInput);
+    
     this.isSaved = this.saveBtnInput.isSaved;
     this.recipe = this.saveBtnInput.recipe;
   }
@@ -36,7 +38,7 @@ export class SaveBtnComponent implements OnInit {
 
   removeFromList(){
     let savedRecipes = this.parsedLocal();
-    savedRecipes = savedRecipes.filter((e:any) => e.idMeal !== this.recipe.idMeal);
+    savedRecipes = savedRecipes.filter((r:any) => r && r.idMeal !== this.recipe.idMeal);
     localStorage.setItem('nomnombase', JSON.stringify(savedRecipes));
     this.isSaved = false;
   }
