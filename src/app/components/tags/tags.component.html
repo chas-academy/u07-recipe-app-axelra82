@@ -1,0 +1,7 @@
+<ul class="tags mt-3" *ngIf="tags">
+    <li class="text-muted fw-bold tag" *ngFor="let tag of tags | tags">
+       <a [routerLink]="['/']" [queryParams]="{search: tag | unhash}">
+            {{ tag }}
+        </a>
+    </li>
+</ul>
