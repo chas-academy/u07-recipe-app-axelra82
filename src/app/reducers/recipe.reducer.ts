@@ -4,6 +4,7 @@ import { Recipes } from '../models/recipes.model';
 export type Action = RecipeActions.All;
 
 const defaultState: Recipes = {
+    filter: [],
     list: [],
     single: {
         idMeal: '',
@@ -72,8 +73,8 @@ export function postReducer(state: Recipes = defaultState, action: Action){
         case RecipeActions.RECIPE_LIST:
             return newState(state, {list: action.payload });
 
-        case RecipeActions.RECIPE_SINGLE:
-            return newState(state, {single: action.payload });
+        case RecipeActions.RECIPE_FILTER:
+            return newState(state, {filter: action.payload });
             
         default:
             return defaultState;
