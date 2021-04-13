@@ -47,4 +47,4 @@ Thumbs.db
 
 # ENV files
 .env
-*.env
+.env*
