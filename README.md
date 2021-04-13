@@ -1,6 +1,6 @@
 # CHAS ACADEMY | ASSIGNMENT U07
 
-[Live app preview](https://optimistic-wiles-9bb767.netlify.app/)
+[Live app preview](https://relaxed-shirley-9bed8f.netlify.app/)
 
 ## Introduction
 
