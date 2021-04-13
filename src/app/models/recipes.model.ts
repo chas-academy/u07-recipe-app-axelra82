@@ -1,5 +1,5 @@
 export interface Recipes {
-    filter: [];
+    filter: string[];
     list: [];
     single: {
         idMeal: string;
