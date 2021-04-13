@@ -14,6 +14,12 @@ To test if you have it, run `ng v`. If this outputs "Angular CLI" with version i
 
 If you don't have it installed simply run `npm i -g @angular/cli`.
 
+**NODEJS**
+
+To test if you have it, run `node -v`. If this outputs a version number (e.g. v15.x.x) you are good to go.
+
+If you don't have it installed visit [nodejs.org](https://nodejs.org/en/download/), download installer and follow instructions for you OS.
+
 **Local environment**
 
 On build this project looks for an environment. Since environment variables are secret and should never be shared in public repos you will need to set it up yourself. Create a new file called `.env` in the project root. You can do this several ways, e.g.:
