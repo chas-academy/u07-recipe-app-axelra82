@@ -1,0 +1,16 @@
+<button
+    (click)="removeFromList()"
+    class="btn btn-danger"
+    *ngIf="isSaved; else save"
+>
+    Remove
+</button>
+
+<ng-template #save>
+    <button
+        (click)="saveToList()"
+        class="btn btn-success"
+    >
+        Save
+    </button>
+</ng-template>
