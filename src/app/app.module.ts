@@ -1,6 +1,8 @@
-// Native
+// Native NG
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 // Route
 import { AppRoutingModule } from './app-routing.module';
 // Components
@@ -22,6 +24,8 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     StoreModule,
   ],
   providers: [],
