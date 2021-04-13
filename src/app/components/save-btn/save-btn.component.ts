@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SaveBtnComponent implements OnInit {
 
-  @Input() saveBtnData: any;
+  @Input() saveBtnInput: any;
 
   isSaved: boolean;
   recipe: any;
@@ -15,8 +15,8 @@ export class SaveBtnComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.isSaved = this.saveBtnData.isSaved;
-    this.recipe = this.saveBtnData.recipe;
+    this.isSaved = this.saveBtnInput.isSaved;
+    this.recipe = this.saveBtnInput.recipe;
   }
 
   parsedLocal(){
@@ -28,6 +28,7 @@ export class SaveBtnComponent implements OnInit {
     if(savedRecipes === null){
       savedRecipes = [];
     }
+
     savedRecipes.push(this.recipe);
     localStorage.setItem('nomnombase', JSON.stringify(savedRecipes));
     this.isSaved = true;
