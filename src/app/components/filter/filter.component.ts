@@ -1,4 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+
+import * as RecipeActions from '../../actions/recipe.actions';
 
 @Component({
   selector: 'app-filter',
@@ -6,40 +10,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  
-  @Input() recipesData:any;
-  @Output() newItemEvent = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(
+    private store: Store,
+  ) { }
 
-  ngOnInit(): void {
-    // console.log(this.recipesData);
-  }
+  ngOnInit(): void { }
 
-  filter(){
-    this.recipesData = [];
-    this.newItemEvent.emit(this.recipesData);
-  }
+  onCheckboxChange(el: any) {
+    const target = el.target;
+    const value: string = target.parentElement.innerText.trim().toLowerCase();
 
-
-  onCheckboxChange(e) {
-    const value = e.target.parentElement.innerText.trim().toLowerCase();
-    let state: boolean;
-
-    if (e.target.checked) {
-      // console.log(`${value} checked`);
-      state = true;
+    if (target.checked) {
+      this.store.dispatch(new RecipeActions.RecipeFilterAdd(value));
     } else {
-      state = false;
-      // console.log(`${value} unchecked`);
-    }
-    
-    this.recipesData = this.recipesData.filter(
-      (word: any) => 
-        word.strCategory.toLowerCase() === value
-    );
-
-    this.newItemEvent.emit(this.recipesData);
+      this.store.dispatch(new RecipeActions.RecipeFilterRemove(value));
+    }    
   }
 
 }
