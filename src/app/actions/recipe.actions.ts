@@ -1,23 +1,17 @@
 import { Action } from '@ngrx/store';
 
-export const GET_RECIPES = '[Recipes] Get';
-export const SET_RECIPE = '[Recipe] Set';
-export const SAVE_RECIPE = '[Recipe] Save';
+export const RECIPE_LIST = '[Recipes] Get';
+export const RECIPE_SINGLE = '[Recipe] Set';
 
-export class GetRecipes implements Action {
-    readonly type = GET_RECIPES;
+export class RecipeList implements Action {
+    readonly type = RECIPE_LIST;
     constructor(public payload: any) {}   
 }
-export class SetRecipe implements Action {
-    readonly type = SET_RECIPE;
-    constructor(public payload: any) {}   
-}
-export class SaveRecipe implements Action {
-    readonly type = SAVE_RECIPE;
+export class RecipeSingle implements Action {
+    readonly type = RECIPE_SINGLE;
     constructor(public payload: any) {}   
 }
 
 export type All
-    = SaveRecipe | 
-    SetRecipe |
-    GetRecipes;
+    = RecipeSingle |
+    RecipeList;
