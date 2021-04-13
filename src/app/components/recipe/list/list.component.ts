@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
     )
   }
 
-  saveBtnData(recipe: object){
-    this.saveBtnService.saveBtnData(recipe);
+  saveBtnInput(recipe: object){
+    return this.saveBtnService.saveBtnData(recipe);
   }
 }
