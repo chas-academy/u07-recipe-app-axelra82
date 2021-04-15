@@ -6,6 +6,8 @@
 
 This assignment requires the developer to create a rudimentary recipe app using [Angluar](https://angular.io/) v11+.
 
+Once your up and runnig (or if you just want a sneek peak you can use to link above to the live app), try searching for `chocolate` and either filter by "type" with `Dessert` or `Vegan` to see the search results filter on the spot.
+
 ### Prerequisites
 
 **Angluar CLI =< v11.x**
