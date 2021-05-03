@@ -1,7 +1,7 @@
 // NG
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Root and route
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,8 @@ import { postReducer } from './reducers/recipe.reducer';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { ProfileComponent } from './components/auth/profile/profile.component';
+// Auth
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,12 @@ import { ProfileComponent } from './components/auth/profile/profile.component';
   ],
   providers: [
     MealdbService,
-    SaveBtnService
+    SaveBtnService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent
