@@ -2,8 +2,17 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/">NONOMBASE</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a routerLinkActive="active" class="nav-link" aria-current="page" [routerLink]="['saved']">Saved recipes</a>
+            <li *ngIf="!isSignedIn" class="nav-item">
+              <a class="nav-link" aria-current="page" [routerLink]="['signup']">Register</a>
+            </li>
+            <li *ngIf="!isSignedIn" class="nav-item">
+              <a class="nav-link" aria-current="page" [routerLink]="['login']">Login</a>
+            </li>
+            <li *ngIf="isSignedIn" class="nav-item">
+              <a class="nav-link" aria-current="page" [routerLink]="['profile']">Profile</a>
+            </li>
+            <li *ngIf="isSignedIn" class="nav-item">
+              <button class="btn btn-outline-primary" (click)="signOut()">Log out</button>
             </li>
         </ul>
         <app-search></app-search>
