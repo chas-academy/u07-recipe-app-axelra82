@@ -33,6 +33,9 @@
           <label>Confirm Password</label>
           <input type="password" class="form-control" formControlName="password_confirmation">
         </div>
-        <button type="submit" class="btn btn-block btn-primary mt-3">Register</button>
+        <p class="small text-muted mt-2">
+          Already have an account? <a [routerLink]="['/login']">Login</a>
+        </p>
+        <button type="submit" class="btn btn-block btn-primary">Register</button>
     </form>
   </div>
