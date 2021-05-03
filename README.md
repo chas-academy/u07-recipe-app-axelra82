@@ -49,8 +49,8 @@ Then save and exit. Your environment setup is now done!
 
 - [x] get a list of recipe suggestions
 - [ ] be able to filter suggestions
-  - [ ] by type/category (e.g. main, side, dessert etc)
-  - [ ] by allergen/dietary (e.g. gluten, nuts, vegan etc)
+  - [x] by type/category (e.g. main, side, dessert etc)
+  - [x] by allergen/dietary (e.g. gluten, nuts, vegan etc)
 - [x] individual recipe page (route) from list
 - [x] be able to save recipe in list
 - [x] be able to view saved recipe (route) from list
@@ -63,7 +63,7 @@ Then save and exit. Your environment setup is now done!
   - [MealDB](https://www.themealdb.com/api.php)
   - ~~[Edamam](https://developer.edamam.com/edamam-recipe-api)~~
 - [x] must be responsive (i.e. work on mobile/tablet/laptop/desktop)
-- [ ] saved list and filtering must work while browser remains open
+- [x] saved list and filtering must work while browser remains open
 
 # Hand in
 
