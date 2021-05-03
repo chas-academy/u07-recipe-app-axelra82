@@ -26,6 +26,9 @@ import { SavedComponent } from './pages/saved/saved.component';
 // Store (a.k.a state)
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './reducers/recipe.reducer';
+import { SigninComponent } from './components/auth/signin/signin.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { postReducer } from './reducers/recipe.reducer';
     TagsComponent,
     SavedComponent,
     SaveBtnComponent,
+    SigninComponent,
+    SignupComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
