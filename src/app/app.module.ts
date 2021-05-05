@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { ListComponent, SingleComponent } from './components/recipe/recipe.component';
+import { ListComponent, SingleComponent } from './components/recipe/recipe';
 import { TagsComponent } from './components/tags/tags.component';
 import { SaveBtnComponent } from './components/save-btn/save-btn.component';
 // Services
@@ -20,13 +20,10 @@ import { SaveBtnService } from './services/save-btn.service';
 import { TagsPipe, TruncatePipe, UnhashPipe, ParsePipe } from './pipes/pipes';
 // Pages
 import { HomeComponent } from './pages/home/home.component';
-import { SavedComponent } from './pages/saved/saved.component';
 // Store (a.k.a state)
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './reducers/recipe.reducer';
-import { SigninComponent } from './components/auth/signin/signin.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
-import { ProfileComponent } from './components/auth/profile/profile.component';
+import { SigninComponent, SignupComponent, ProfileComponent, RecipeListComponent } from './components/auth/auth';
 // Auth
 import { AuthInterceptor } from './shared/auth.interceptor';
 
@@ -45,11 +42,11 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     NavComponent,
     HomeComponent,
     TagsComponent,
-    SavedComponent,
     SaveBtnComponent,
     SigninComponent,
     SignupComponent,
     ProfileComponent,
+    RecipeListComponent,
   ],
   imports: [
     BrowserModule,
