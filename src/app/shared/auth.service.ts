@@ -39,14 +39,24 @@ export class AuthService {
     return this.http.get(`${environment.AUTH_API_URL}/profile`);
   }
   
-  // Access recipe lists
+  // Get recipe lists
   recipeLists(): Observable<any> {
     return this.http.get(`${environment.AUTH_API_URL}/recipelists`);
+  }
+  
+  // Get recipe lists
+  getRecipeList(listId: string): Observable<any> {
+    return this.http.get(`${environment.AUTH_API_URL}/recipelist/${listId}`);
   }
  
   // Create recipe lists
   createRecipeList(recipeList: RecipeList): Observable<any> {
     return this.http.post(`${environment.AUTH_API_URL}/recipelist`, recipeList);
+  }
+  
+  // Update recipe lists
+  updateRecipeList(listId: string, newRecipeList: object): Observable<any> {
+    return this.http.put(`${environment.AUTH_API_URL}/recipelist/${listId}`, newRecipeList);
   }
   
   // Delete recipe lists
