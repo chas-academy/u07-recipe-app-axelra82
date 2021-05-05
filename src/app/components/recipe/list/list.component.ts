@@ -17,7 +17,7 @@ interface AppState {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
+  
   recipesSubscriber: Observable<Recipes>;
   recipesData: Recipes[];
   haveResults: boolean = false;
@@ -74,7 +74,12 @@ export class ListComponent implements OnInit {
     )
   }
 
-  saveBtnInput(recipe: object){
-    return this.saveBtnService.saveBtnData(recipe);
+  saveClick(recipe: any){
+    const mealId = recipe.idMeal;
+    const mealName = recipe.strMeal;
+    this.saveBtnService.setData({
+      id: mealId,
+      name: mealName,
+    });
   }
 }

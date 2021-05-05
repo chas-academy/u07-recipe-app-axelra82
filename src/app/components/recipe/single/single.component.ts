@@ -55,8 +55,13 @@ export class SingleComponent implements OnInit {
     this.details = detailsArray;
   }
 
-  saveBtnInput(recipe: object){
-    return this.saveBtnService.saveBtnData(recipe);
+  saveClick(recipe: any){
+    const mealId = recipe.idMeal;
+    const mealName = recipe.strMeal;
+    this.saveBtnService.setData({
+      id: mealId,
+      name: mealName,
+    });
   }
   
   ngOnInit() {
