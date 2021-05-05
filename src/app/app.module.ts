@@ -17,9 +17,7 @@ import { SaveBtnComponent } from './components/save-btn/save-btn.component';
 import { MealdbService } from './services/recipes.service';
 import { SaveBtnService } from './services/save-btn.service';
 // Pipes
-import { TruncatePipe } from './pipes/truncate.pipe';
-import { TagsPipe } from './pipes/tags.pipe';
-import { UnhashPipe } from './pipes/unhash.pipe';
+import { TagsPipe, TruncatePipe, UnhashPipe, ParsePipe } from './pipes/pipes';
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { SavedComponent } from './pages/saved/saved.component';
@@ -43,6 +41,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     TruncatePipe,
     TagsPipe,
     UnhashPipe,
+    ParsePipe,
     NavComponent,
     HomeComponent,
     TagsComponent,
