@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 // User interface
@@ -9,6 +9,11 @@ export class User {
   email: String;
   password: String;
   password_confirmation: String
+}
+
+// Recipe list interface
+export class RecipeList {
+  name: String;
 }
 
 @Injectable({
@@ -26,11 +31,27 @@ export class AuthService {
 
   // Login
   signin(user: User): Observable<any> {
-    return this.http.post<any>(`${environment.AUTH_API_URL}/login`, user);
+    return this.http.post(`${environment.AUTH_API_URL}/login`, user);
   }
 
   // Access user profile
-  profileUser(): Observable<any> {
+  profile(): Observable<any> {
     return this.http.get(`${environment.AUTH_API_URL}/profile`);
   }
+  
+  // Access recipe lists
+  recipeLists(): Observable<any> {
+    return this.http.get(`${environment.AUTH_API_URL}/recipelists`);
+  }
+ 
+  // Create recipe lists
+  createRecipeList(recipeList: RecipeList): Observable<any> {
+    return this.http.post(`${environment.AUTH_API_URL}/recipelist`, recipeList);
+  }
+  
+  // Delete recipe lists
+  deleteRecipeList(listId: String): Observable<any> {    
+    return this.http.delete(`${environment.AUTH_API_URL}/recipelist/${listId}`);
+  }
+
 }
