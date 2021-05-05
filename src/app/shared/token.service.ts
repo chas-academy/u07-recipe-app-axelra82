@@ -28,8 +28,13 @@ export class TokenService {
 
      if(token){
        const payload = this.payload(token);
+       // Get timestamp now
+       const now = Math.floor(Date.now() / 1000);
+       // If now less than token expire at
+       const isActive = now < this.payload(token).exp;
+       
        if(payload){
-         return Object.values(this.issuer).indexOf(payload.iss) > -1 ? true : false;
+         return isActive && Object.values(this.issuer).indexOf(payload.iss) > -1 ? true : false;
        }
      } else {
         return false;
