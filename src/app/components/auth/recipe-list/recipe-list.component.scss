@@ -1,0 +1,13 @@
+#selected-list{
+    list-style: none;
+}
+
+.bi-x-circle-fill{
+    margin-left: 1rem;
+    cursor: pointer;
+    color: #999;
+
+    &:hover{
+        color: var(--bs-danger);
+    }
+}

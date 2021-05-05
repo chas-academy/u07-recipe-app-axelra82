@@ -1,0 +1,85 @@
+<div *ngIf="!loading; else loadingPlaceHolder">
+            
+    <article *ngIf="!haveLists" class="container mt-5 mb-5 text-center">
+        <strong>It looks like you don't have any lists yet. Use the form below to create your first list.</strong>
+    </article>
+
+    <div *ngIf="haveLists" class="mt-5 mb-5 text-center">
+        <h3 class="h3 mb-3 mt-3 font-weight-normal">Select list</h3>
+            
+        <select
+         [(ngModel)]="selectedList"
+         (change)="changeListSelection()"
+         class="center-select"
+         >
+            <option
+                [selected]='!listSelected'
+                disabled
+                value="undefined"
+            >
+                –– SELECT LIST ––
+            </option>
+            <option
+                *ngFor="let list of recipeLists"
+                [ngValue]="{id: list.id, name: list.name, recipes: list.recipes}"
+            >
+                {{ list.name }}
+            </option>
+        </select>
+        
+        <button
+            *ngIf="listSelected && !isProfile"
+            (click)="addRecipe()"
+            class="btn btn-block btn-primary mt-3"
+        >
+            Select
+        </button>
+
+        <button
+            *ngIf="listSelected"
+            (click)="deleteList()"
+            class="btn btn-block btn-danger mt-3 mx-2"
+        >
+            Delete list
+        </button>
+
+        <ul
+            id="selected-list"
+            class="p-0 mt-3"
+            *ngIf="listSelected && isProfile"
+        >
+            <li *ngFor="let recipe of selectedList.recipes | parse:selectedList.recipes">
+                <a routerLink="/recipe/{{ recipe.id }}">
+                    {{ recipe.name }}
+                </a> <svg (click)="removeRecipe(recipe)" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                  </svg>
+            </li>
+        </ul>
+        <hr class="hr-text" data-content="OR">
+    </div>
+
+    <form class="form-create-list text-center" [formGroup]="createListForm" (ngSubmit)="createList()">
+        <h3 class="h3 mb-3 mt-3 font-weight-normal">Create list</h3>
+
+        <!-- Errors -->
+        <div *ngIf="errors?.name" class="alert alert-danger mt-3">
+            {{ errors?.name }}
+        </div>
+
+        <!-- Create -->
+        <div class="form-group">
+            <label>List name</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        <button type="submit" class="btn btn-block btn-success mt-3">Create</button>
+    </form>
+    
+</div>
+
+<ng-template #loadingPlaceHolder>
+    <article class="text-center">
+        <div class="spinner-grow text-primary mb-5 mt-5" role="status"></div>
+        <p><strong>Getting lists 👀</strong></p>    
+    </article>
+</ng-template>
