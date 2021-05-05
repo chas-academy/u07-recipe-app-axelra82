@@ -1,11 +1,67 @@
 <div class="container">
-    <div class="card inner-main">
-        <div class="card-header">
-            User Profile
+    <div *ngIf="!loading; else loadingPlaceHolder">
+        <div class="card inner-main">
+            <div class="card-header">
+                User Profile
+            </div>
+            <div class="card-body">
+            <p class="card-text">Name: <strong>{{profile?.name}}</strong></p>
+            <p class="card-text">Email: <strong>{{profile?.email}}</strong></p>
+            </div>
         </div>
-        <div class="card-body">
-        <p class="card-text">Name: <strong>{{UserProfile?.name}}</strong></p>
-        <p class="card-text">Email: <strong>{{UserProfile?.email}}</strong></p>
+        
+        <article *ngIf="!haveLists" class="container mt-5 mb-5 text-center">
+            <strong>It looks like you don't have any lists yet. Use the form below to create your first list.</strong>
+        </article>
+
+        <form class="form-create-list" [formGroup]="createListForm" (ngSubmit)="createList()">
+            <h3 class="h3 mb-3 mt-3 font-weight-normal text-center">Create a new list</h3>
+    
+            <!-- Errors -->
+            <div *ngIf="errors?.name" class="alert alert-danger mt-3">
+                {{ errors?.name }}
+            </div>
+
+            <!-- Create -->
+            <div class="form-group">
+                <label>List name</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary mt-3">Create</button>
+        </form>
+
+        <div *ngIf="haveLists" class="mt-5 mb-5">
+            <h3>Your recipe lists</h3>
+            <div class="row mt-3">
+                
+                <div *ngFor="let list of recipeLists" class="col-12">
+                    <article class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ list.name }}</h5>
+                            <ul *ngFor="let recipe of list.recipes | parse:list.recipes">
+                                <li>
+                                    <a routerLink="/recipe/{{ recipe.id }}">
+                                        {{ recipe.name }}
+                                    </a>
+                                </li>
+                            </ul>
+                            <button
+                                (click)="deleteList(list.id, list.name)"
+                                type="submit"
+                                class="btn btn-block btn-danger mt-3"
+                            >
+                                Delete list
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
     </div>
+    <ng-template #loadingPlaceHolder>
+        <article class="text-center">
+            <div class="spinner-grow text-primary mb-5 mt-5" role="status"></div>
+            <p><strong>Getting user profile 🙌</strong></p>    
+        </article>
+    </ng-template>
 </div>
