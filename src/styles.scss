@@ -11,8 +11,11 @@ body {
 }
 
 select{
-  font-size: 1rem;
+  -webkit-appearance: none;
   display: block;
+  border: 1px solid #ccc;
+  padding: .375rem .675rem;
+  font-size: 1rem;
 
   &.center-select{
     transform: translateX(-50%);
@@ -25,7 +28,7 @@ select{
     position: relative;
     text-align: center;
     background: none;
-    margin-bottom: 3rem;
+    margin-top: 3rem;
 
     &:before {
       content: '';
