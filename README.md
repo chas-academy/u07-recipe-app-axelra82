@@ -53,7 +53,7 @@ Then save and exit. Your environment setup is now done!
 ### Goal
 
 - [x] get a list of recipe suggestions
-- [ ] be able to filter suggestions
+- [x] be able to filter suggestions
   - [x] by type/category (e.g. main, side, dessert etc)
   - [x] by allergen/dietary (e.g. gluten, nuts, vegan etc)
 - [x] individual recipe page (route) from list
