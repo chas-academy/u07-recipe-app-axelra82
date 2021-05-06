@@ -13,8 +13,15 @@
 <div class="modal fade" id="userSaveAction" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Save recipe to list</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
       <div class="modal-body">
         <app-recipe-list></app-recipe-list>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
