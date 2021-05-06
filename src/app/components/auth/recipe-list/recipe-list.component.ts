@@ -48,6 +48,14 @@ export class RecipeListComponent implements OnInit {
         }
       });
     }
+    
+    // If loading is true after 5 seconds
+    // encourage user to refresh page
+    setTimeout(() => {
+      if(this.loading){
+        alert('It looks like something is taking longer than usual. Try refreshing the page. If the problem persists contact admin: axel.roussilleaberg@chasacademy.se');
+      }
+    }, 5000);
   }
 
   changeListSelection(){
