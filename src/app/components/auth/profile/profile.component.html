@@ -1,21 +1,12 @@
 <div class="container">
-    <div *ngIf="!loading; else loadingPlaceHolder">
-        <div class="card inner-main">
-            <div class="card-header">
-                User Profile
-            </div>
-            <div class="card-body">
-            <p class="card-text">Name: <strong>{{profile?.name}}</strong></p>
-            <p class="card-text">Email: <strong>{{profile?.email}}</strong></p>
-            </div>
+    <div class="card inner-main">
+        <div class="card-header">
+            User Profile
+        </div>
+        <div class="card-body">
+        <p class="card-text">Name: <strong>{{profile?.name}}</strong></p>
+        <p class="card-text">Email: <strong>{{profile?.email}}</strong></p>
         </div>
     </div>
-
-    <ng-template #loadingPlaceHolder>
-        <article class="text-center">
-            <div class="spinner-grow text-primary mb-5 mt-5" role="status"></div>
-            <p><strong>Getting user profile 🙌</strong></p>    
-        </article>
-    </ng-template>
     <app-recipe-list></app-recipe-list>
 </div>
