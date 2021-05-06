@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 
 export class TokenService {
 
+  tokenItemName = 'recipe_app_token';
+
   private issuer = {
     login: `${environment.AUTH_API_URL}/login`,
     register: `${environment.AUTH_API_URL}/register`
@@ -15,11 +17,15 @@ export class TokenService {
   constructor() { }
 
   handleData(token){
-    localStorage.setItem('auth_token', token);
+    localStorage.setItem(this.tokenItemName, token);
   }
 
   getToken(){
-    return localStorage.getItem('auth_token');
+    return localStorage.getItem(this.tokenItemName);
+  }
+
+  removeProtocol(url: string): string{
+    return url.replace(/([http|https]*:\/\/)(.*)/g, "$2");
   }
 
   // Verify the token
@@ -31,17 +37,18 @@ export class TokenService {
        // Get timestamp now
        const now = Math.floor(Date.now() / 1000);
        // If now less than token expire at
-       const isActive = now < this.payload(token).exp;
+       const isActive = now < payload.exp;       
+       const issuerTest = Object.values(this.issuer).some(issuer => this.removeProtocol(issuer) === this.removeProtocol(payload.iss));
        
-       if(payload){
-         return isActive && Object.values(this.issuer).indexOf(payload.iss) > -1 ? true : false;
+       if(payload && isActive && issuerTest){
+         return  true;
        }
-     } else {
-        return false;
+       
+       return false;
      }
   }
 
-  payload(token) {
+  payload(token: string) {
     const jwtPayload = token.split('.')[1];
     return JSON.parse(atob(jwtPayload));
   }
@@ -53,6 +60,6 @@ export class TokenService {
 
   // Remove token
   removeToken(){
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem(this.tokenItemName);
   }
 }
