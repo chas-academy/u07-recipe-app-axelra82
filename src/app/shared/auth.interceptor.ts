@@ -12,19 +12,10 @@ export class AuthInterceptor implements HttpInterceptor {
     ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        // Array of routes that should use intercepter
-        const authRoutes = [
-            'profile',
-            'login',
-            'logout',
-            'signup',
-            'recipelists',
-            'recipelist',
-        ];
-        // Match auth routes array in request url
-        const inAuthRoute = authRoutes.some(r => req.url.includes(r));
-        // If in auth routes, add auth header        
-        if(inAuthRoute){
+        // All routes that require auth must have InterceptorAuth
+        // in headers. This way we can easily check if route needs
+        // auth or not in a scalable way.
+        if(req.headers.has('InterceptorAuth')){
             const accessToken = this.tokenService.getToken();
             const isValidToken = this.tokenService.isValidToken();
                         
@@ -35,6 +26,8 @@ export class AuthInterceptor implements HttpInterceptor {
                     }
                 });
             }else{
+                // No valid token on auth route
+                // user must login
                 this.router.navigate(['login']);
             }
         }
