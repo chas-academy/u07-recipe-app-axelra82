@@ -31,6 +31,7 @@
             *ngIf="listSelected && !isProfile"
             (click)="addRecipe()"
             class="btn btn-block btn-primary mt-3"
+            data-bs-dismiss="modal"
         >
             Select
         </button>
@@ -46,7 +47,7 @@
         <ul
             id="selected-list"
             class="p-0 mt-3"
-            *ngIf="listSelected && isProfile"
+            *ngIf="listSelected"
         >
             <li *ngFor="let recipe of selectedList.recipes | parse:selectedList.recipes">
                 <a routerLink="/recipe/{{ recipe.id }}">

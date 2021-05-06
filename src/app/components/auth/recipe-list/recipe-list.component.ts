@@ -34,18 +34,20 @@ export class RecipeListComponent implements OnInit {
       name: [],
     })
     // Check if we are on the profile page
-    this.isProfile = router.url === '/profile';
+    this.isProfile = this.router.url === '/profile';
   }
 
   ngOnInit() {
-    this.authService.recipeLists().subscribe((data:any) => {
-      this.recipeLists = data;
-      this.loading = false;
-      // If data is greater than 0 set haveLists to true
-      if(data.length > 0){
-        this.haveLists = true;
-      }
-    });
+    if(this.token.isLoggedIn()){
+      this.authService.listRecipeLists().subscribe((data:any) => {
+        this.recipeLists = data;
+        this.loading = false;
+        // If data is greater than 0 set haveLists to true
+        if(data.length > 0){
+          this.haveLists = true;
+        }
+      });
+    }
   }
 
   changeListSelection(){
@@ -62,11 +64,11 @@ export class RecipeListComponent implements OnInit {
 
     const confirmDelete = confirm(`This will remove the recipe "${recipeName}" from "${listName}". Are you sure you want to continue?`);
 
-    if(confirmDelete && this.token.isLoggedIn()){
+    if(recipeId && listId && confirmDelete && this.token.isLoggedIn()){
       this.authService.getRecipeList(listId).subscribe(
         list => {
           this.currentData = JSON.parse(list.recipes);
-          this.currentData = this.currentData.filter(recipe => recipe.id !== recipeId);
+          this.currentData = this.currentData.filter((recipe: any) => recipe.id !== recipeId);
         },
         error => {
           console.log(error);
@@ -78,9 +80,11 @@ export class RecipeListComponent implements OnInit {
               console.log(error);
             },
             () => {
-            this.listSelected = false;
+              this.listSelected = false;
+              // Removed object from view for better UX
+              this.selectedList.recipes = JSON.stringify(this.currentData);
             }
-          )
+          );
         }
       )
     }
@@ -94,10 +98,8 @@ export class RecipeListComponent implements OnInit {
       this.authService.getRecipeList(listId).subscribe(
           list => {
             this.currentData = JSON.parse(list.recipes);
-            const isUnique = !this.currentData.some(recipe => recipe.id === recipeData.id);
+            const isUnique = !this.currentData.some((recipe: any) => recipe.id === recipeData.id);
 
-            console.log(isUnique);
-            
             if(isUnique){
               this.currentData.push(recipeData);
             }else{
@@ -114,7 +116,9 @@ export class RecipeListComponent implements OnInit {
                 console.log(error);
               },
               () => {
-               this.listSelected = false;
+                this.listSelected = false;
+                // Add object to view for better UX
+                this.selectedList.recipes = JSON.stringify(this.currentData);
               }
             )
           }
@@ -156,25 +160,22 @@ export class RecipeListComponent implements OnInit {
   deleteList() {
     const listId = this.selectedList.id;
     const listName = this.selectedList.name;
+    const confirmDelete = confirm(`Are you sure you want to delete the list "${listName}"? This action can't be undon.`)
 
-    if(this.token.isLoggedIn()){
-      const confirmDelete = confirm(`Are you sure you want to delete the list "${listName}"? This action can't be undon.`)
-      
-      if(confirmDelete){
-        this.authService.deleteRecipeList(listId).subscribe(
-          () => {
-            // Removed object from view for better UX
-            this.recipeLists.splice(this.recipeLists.findIndex(list => list.id === listId));
+    if(this.token.isLoggedIn() && confirmDelete){ 
+      this.authService.deleteRecipeList(listId).subscribe(
+        () => {
+          // Removed object from view for better UX
+          this.recipeLists.splice(this.recipeLists.findIndex((list: any) => list.id === listId));
 
-            if(this.recipeLists.length === 0){
-              this.haveLists = false;
-            }
-          },
-          error => {
-            console.log(error);
+          if(this.recipeLists.length === 0){
+            this.haveLists = false;
           }
-        )
-      }
+        },
+        error => {
+          console.log(error);
+        }
+      )
     }
   }
 }
