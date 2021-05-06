@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../shared/auth.service';
-import { TokenService } from '../../../shared/token.service';
+import { AuthService } from '../shared/auth.service';
+import { TokenService } from '../shared/token.service';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { SaveBtnService } from '../../../services/save-btn.service';
 import { Router } from '@angular/router';

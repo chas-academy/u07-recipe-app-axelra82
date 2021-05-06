@@ -25,7 +25,7 @@ import { StoreModule } from '@ngrx/store';
 import { postReducer } from './reducers/recipe.reducer';
 import { SigninComponent, SignupComponent, ProfileComponent, RecipeListComponent } from './components/auth/auth';
 // Auth
-import { AuthInterceptor } from './shared/auth.interceptor';
+import { AuthInterceptor } from './components/auth/shared/auth.interceptor';
 
 @NgModule({
   declarations: [

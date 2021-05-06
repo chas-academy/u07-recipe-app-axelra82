@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../../shared/auth.service';
-import { TokenService } from '../../../shared/token.service';
+import { AuthService } from '../shared/auth.service';
+import { TokenService } from '../shared/token.service';
 
 // User interface
 export class User {

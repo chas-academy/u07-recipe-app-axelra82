@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TokenService } from '../../shared/token.service';
+import { TokenService } from '../auth/shared/token.service';
 
 @Component({
   selector: 'app-save-btn',
