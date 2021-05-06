@@ -26,12 +26,12 @@ export class AuthService {
 
   // User registration
   register(user: User): Observable<any> {
-    return this.doRequest('post', 'register', user, false);
+    return this.doRequest('post', 'register', user);
   }
 
   // Login
   signin(user: User): Observable<any> {
-    return this.doRequest('post', 'login', user, false);
+    return this.doRequest('post', 'login', user);
   }
 
   // Access user profile
@@ -64,17 +64,12 @@ export class AuthService {
     return this.doRequest('delete', `recipelist/${listId}`);
   }
 
-  doRequest(action = '', endpoint = '', body = {}, autHeader = true){
+  doRequest(action = '', endpoint = '', body = {}){
     const headers = new HttpHeaders().set('InterceptorAuth', '');
     
     // Post and put need body in request
     if(action === 'post' || action === 'put'){
-      if(autHeader){
         return this.http[action](`${environment.AUTH_API_URL}/${endpoint}`, body, { headers });
-      }else{
-        // Login and register don't have auth
-        return this.http[action](`${environment.AUTH_API_URL}/${endpoint}`, body);
-      }
     }
     
     // Default for get and delete
