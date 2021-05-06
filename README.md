@@ -1,5 +1,9 @@
 # CHAS ACADEMY | ASSIGNMENT U07
 
+**EDIT** 2021-05-06
+
+This app has been updated to work with [the API from assignment u08](https://github.com/chas-academy/u08-recipe-api-axelra82). Make sure to include the new `AUTH_API_URL` in your `.env` file. If you want to run a local version of the API from u08 the URL is `http://localhost/api/auth`.
+
 [Live app preview](https://relaxed-shirley-9bed8f.netlify.app/)
 
 ## Introduction
@@ -33,6 +37,7 @@ On build this project looks for an environment. Since environment variables are 
 Edit `.env` file and insert:
 
 - `REAPP_MEALDB_API_KEY=1`
+- `AUTH_API_URL=https://cau08.herokuapp.com/api/auth`
 
 Then save and exit. Your environment setup is now done!
 
